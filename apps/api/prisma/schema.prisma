@@ -44,7 +44,6 @@ model Ticket {
   updatedAt DateTime @updatedAt
 }
 
-
 model Referral {
   id        Int      @id @default(autoincrement())
   code      String   @unique
