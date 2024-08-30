@@ -43,7 +43,6 @@ export class AuthController {
             },
           });
 
-
           await prisma.user.update({
             where: { id: referrer.id },
             data: { points: { increment: 10000 } },
