@@ -31,7 +31,7 @@ export const Navbar = () => {
 
         <div className="flex px-[50px] items-center">
           <Link href={'/'}>
-            <Image src="/assets/icons/logo-full.svg" alt="Logo" height={1000} width={1000} className="h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
+            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
           </Link>
           <div className=''>
             <ul className='hidden justify-self-auto md:flex gap-x-[100px] p-[10px]'>
@@ -90,7 +90,7 @@ export const Navbar = () => {
             </ul>            
           </div>
           <Link href={'/'} className="flex absolute bottom-0 down-[-100%] p-[50px] justify-center w-full hover:drop-shadow-[0_0_0.3rem_#ffffff70]">
-            <Image src="/assets/icons/logo-full.svg" alt="Logo" height={1000} width={1000} className="h-10" />
+            <Image src="/assets/icons/logo-full_1.svg" alt="Logo" height={1000} width={1000} className="h-10" />
           </Link>
         </div>
       </div>
