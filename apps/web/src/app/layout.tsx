@@ -4,6 +4,7 @@ import './globals.css'; // styling
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { cn } from '@/lib/utils'
+import { ThemeProvider } from "@/components/theme-provider"
 
 const fontJakarta = Plus_Jakarta_Sans({ // font yg dipakai
   subsets: ['latin'],
@@ -24,9 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn('min-h-screen bg-dark-300 font-sans antialiased', fontJakarta.variable)}>
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark">
+          <Header />
+          {children}
+          <Footer />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
