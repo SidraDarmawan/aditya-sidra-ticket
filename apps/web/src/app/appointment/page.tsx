@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PasskeyModal } from "@/components/PasskeyModal";
 import { PatientForm } from '@/components/forms/PatientForm';
 
-export default function Login({ searchParams }: SearchParamProps) {
+export default function Appointment({ searchParams }: SearchParamProps) {
 
   const isAdmin = searchParams?.admin === "true";
   return (
