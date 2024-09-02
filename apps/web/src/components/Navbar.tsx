@@ -2,9 +2,9 @@
 import React from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-import Logo from "../../public/svg/Logo.svg";
-import User from "../../public/svg/User.svg";
-import hamburger from "../../public/svg/hamburger.svg";
+import { Button } from "@/components/ui/button";
+
+import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from 'react-icons/ai';
 import { useState } from "react";
 
@@ -30,9 +30,11 @@ export const Navbar = () => {
         </div>
 
         <div className="flex px-[50px] items-center">
-          <Link href={'/'}><Image src={Logo} alt="Logo" width={50} className="m-8 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" /></Link>
+          <Link href={'/'}>
+            <Image src="/assets/icons/logo-full.svg" alt="Logo" height={1000} width={1000} className="h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
+          </Link>
           <div className=''>
-            <ul className='hidden justify-self-auto md:flex gap-x-[100px] p-[50px]'>
+            <ul className='hidden justify-self-auto md:flex gap-x-[100px] p-[10px]'>
               <Link href={'/'}>
                 <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
               <Link href={'/about-us'}>
@@ -45,8 +47,7 @@ export const Navbar = () => {
           </div>
           <div className="hidden lg:flex absolute right-0 items-center p-[50px] mx-5 hover:drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer gap-x-[20px]">
             <Link href={'/login'} className='flex'>
-              <p className="text-black font-extrabold size-fit hover:text-purple-600 p-5">Sign In</p>
-              <Image src={User} alt="User Profile" />
+              <Button>Book Now</Button>
             </Link>            
           </div>          
         </div>
@@ -54,7 +55,7 @@ export const Navbar = () => {
 
       {/* NAVBAR SCREEN KECIL */}
       <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-[50px] z-10">
-          <Image src={hamburger} alt="hamburger" width={25} className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />        
+          <GiHamburgerMenu size={25} className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]"/>               
       </div>
       <div className='fixed w-full z-10'>
         <div className={
@@ -89,7 +90,7 @@ export const Navbar = () => {
             </ul>            
           </div>
           <Link href={'/'} className="flex absolute bottom-0 down-[-100%] p-[50px] justify-center w-full hover:drop-shadow-[0_0_0.3rem_#ffffff70]">
-            <Image src={Logo} alt="Logo" width={50} className="" />
+            <Image src="/assets/icons/logo-full.svg" alt="Logo" height={1000} width={1000} className="h-10" />
           </Link>
         </div>
       </div>
