@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { cn } from '/@lib/utils'
 
 const fontJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -19,10 +20,10 @@ export default function RootLayout({
   children,
 }: Readonly <{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body className={fontJakarta.className}>
+      <body className={cn}>
         <Header />
         {children}
         <Footer />
