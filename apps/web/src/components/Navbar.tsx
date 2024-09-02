@@ -43,13 +43,11 @@ export const Navbar = () => {
                 <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Service</li></Link>
               <Link href={'/teams'}>
                 <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Teams</li></Link>
+              <Link href={'/teams'}>
+                <Button>
+                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Book Now</li></Button></Link>
             </ul>            
-          </div>
-          <div className="hidden lg:flex absolute right-0 items-center p-[50px] mx-5 hover:drop-shadow-[0_0_0.3rem_#ffffff70] cursor-pointer gap-x-[20px]">
-            <Link href={'/login'} className='flex'>
-              <Button>Book Now</Button>
-            </Link>            
-          </div>          
+          </div>                  
         </div>
       </nav>
 
