@@ -24,13 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-dark-300 font-sans antialiased', fontJakarta.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark">
-          <Header />
-          {children}
-          <Footer />
+      <body
+        className={cn(
+          "min-h-screen bg-dark-300 font-sans antialiased",
+          fontJakarta.variable
+        )}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
         </ThemeProvider>
       </body>
