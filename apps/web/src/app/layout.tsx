@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google'; // font google
 import './globals.css'; // styling
-import { Header } from '@/components/Header';
+import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from "@/components/theme-provider"
@@ -24,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Navbar />
       <body
         className={cn(
           "min-h-screen bg-dark-300 font-sans antialiased",
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <Footer />
     </html>
   );
 }
