@@ -15,6 +15,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
       disabled={isLoading}
       className={className ?? "shad-primary-btn w-full"}
     >
+      {/* ini jika LOADING */}
       {isLoading ? (
         <div className="flex items-center gap-4">
           <Image
@@ -24,7 +25,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
             height={24}
             className="animate-spin"
           />
-          Loading...
+          TUNGGU SEBENTAR YAA...
         </div>
       ) : (
         children

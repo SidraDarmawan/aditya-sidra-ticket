@@ -10,7 +10,7 @@ export default function Appointment({ searchParams }: SearchParamProps) {
     <>
     <div className="flex h-screen max-h-screen">
 
-      {/* OTP VERIFICATION PASSKEY MODEL */}
+      {/* //! OTP VERIFICATION PASSKEY MODEL */}
       {isAdmin && <PasskeyModal />}
 
       <section className="remove-scrollbar container my-auto">

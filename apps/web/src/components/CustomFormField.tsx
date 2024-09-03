@@ -27,18 +27,19 @@ export enum FormFieldType {
   SKELETON = "skeleton",
 }
 
+// UNTUK MENGKONTROL TIPE DARI REACT
 interface CustomProps {
   control: Control<any>;
   name: string;
   label?: string;
   placeholder?: string;
   iconSrc?: string;
-  iconAlt?: string;
+  iconAlt?: string; 
   disabled?: boolean;
   dateFormat?: string;
   showTimeSelect?: boolean;
-  children?: React.ReactNode;
-  renderSkeleton?: (field: any) => React.ReactNode;
+  children?: React.ReactNode; // INI UNTUK KADANG MENUNJUKKAN ISI NYA
+  renderSkeleton?: (field: any) => React.ReactNode; //INI UNTUK MENUNJUKKAN LOADING INPUTNYA
   fieldType: FormFieldType;
 }
 
@@ -46,7 +47,8 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
   switch (props.fieldType) {
     case FormFieldType.INPUT:
       return (
-        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+        // ini untuk memberi SUGGESTION jika sudah pernah input sebelumnya
+        <div className="flex rounded-md border border-dark-500 bg-dark-400 text-white">
           {props.iconSrc && (
             <Image
               src={props.iconSrc}
@@ -79,14 +81,14 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
     case FormFieldType.PHONE_INPUT:
       return (
         <FormControl>
-          <PhoneInput
+          <PhoneInput // ! INI UNTUK INPUT PHONE NUMBER DENGAN PILIHAN BERBAGAI BAHASA
             defaultCountry="US"
             placeholder={props.placeholder}
             international
             withCountryCallingCode
             value={field.value as E164Number | undefined}
             onChange={field.onChange}
-            className="input-phone"
+            className="input-phone text-red-500"
           />
         </FormControl>
       );
@@ -158,6 +160,8 @@ const CustomFormField = (props: CustomProps) => {
       name={name}
       render={({ field }) => (
         <FormItem className="flex-1">
+
+          {/* //! INI UNTUK PENGECEKAN JIKA DI INPUT BERBEDA SESUAIKAN FORM */}
           {props.fieldType !== FormFieldType.CHECKBOX && label && (
             <FormLabel className="shad-input-label">{label}</FormLabel>
           )}

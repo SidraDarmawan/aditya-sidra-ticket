@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Navbar />
+      
       <body
         className={cn(
           "min-h-screen bg-white font-sans antialiased", // GANTI BACKGROUND
@@ -33,10 +33,12 @@ export default function RootLayout({
       >
         {/* GANTI TEMA */}
         <ThemeProvider attribute="class" defaultTheme="light">
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
-      <Footer />
+      
     </html>
   );
 }

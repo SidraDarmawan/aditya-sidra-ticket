@@ -1,14 +1,15 @@
 import { z } from "zod";
 
+// INI UNTUK SISTEM VALIDASINYA
 export const UserFormValidation = z.object({
   name: z
     .string()
-    .min(2, "Name must be at least 2 characters")
-    .max(50, "Name must be at most 50 characters"),
-  email: z.string().email("Invalid email address"),
+    .min(2, "Name must be at least 2 characters") // SEPERTI MIN KARAKTER ADA 2
+    .max(50, "Name must be at most 50 characters"), // INI MAX KARAKTER
+  email: z.string().email("Invalid email address"), 
   phone: z
     .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"), // INI UNTUK MEMBERIKAN SYARAT NOMER HP
 });
 
 export const PatientFormValidation = z.object({
