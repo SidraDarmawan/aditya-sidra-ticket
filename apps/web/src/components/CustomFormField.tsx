@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
-import ReactDatePicker from "react-datepicker";
+import ReactDatePicker from "react-datepicker"; // INI UNTUK MENAMPILKAN TANGGAL
 import { Control } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 
@@ -107,7 +107,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
           </div>
         </FormControl>
       );
-    case FormFieldType.DATE_PICKER:
+    case FormFieldType.DATE_PICKER: // INI PENGATURAN UNTUK RgisterForm.tsx
       return (
         <div className="flex rounded-md border border-dark-500 bg-dark-400">
           <Image

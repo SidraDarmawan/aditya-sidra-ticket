@@ -23,6 +23,8 @@ export default function Appointment({ searchParams }: SearchParamProps) {
             <p className="justify-items-end text-dark-600 xl:text-left">
               © 2025 AditSidra Care
             </p>
+
+            {/* INI UNTUK MENUJU HALAMAN ADMIN BERIKUTNYA  */}
             <Link href="/?admin=true" className="text-green-500">
               Admin
             </Link>
