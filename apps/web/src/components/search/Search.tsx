@@ -7,7 +7,7 @@ export type SearchProps = {
 
 const Search = (props: SearchProps) => {
     const { onSearch } = props;
-    const placeholderValue = 'Search Doctor'
+    const placeholderValue = 'Search Doctor, Clinics, Promo, etc...'
     const [value, setValue] = useState('placeholderValue');
 
     const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
