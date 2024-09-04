@@ -1,10 +1,12 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+
+// BUILDING FORMS with React Hook Form and Zod
 import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Form } from "@/components/ui/form";
 import { createUser } from "@/lib/actions/patient.actions";
@@ -28,7 +30,7 @@ export const PatientForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
-    setIsLoading(true);
+    setIsLoading(true); // INI UNTUK ASYNC ACTION
 
     try {
       const user = {
@@ -37,10 +39,11 @@ export const PatientForm = () => {
         phone: values.phone,
       };
 
+      // ini untuk mengirim DATA USER KE CLOUD
       const newUser = await createUser(user);
 
       if (newUser) {
-        router.push(`/patients/${newUser.$id}/register`);
+        router.push(`/patients/${newUser.$id}/register`); // INI URL nya DYNAMIC sesuai ID nya
       }
     } catch (error) {
       console.log(error);
@@ -52,18 +55,19 @@ export const PatientForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
-        <section className="mb-12 space-y-4">
-          <h1 className="header">Join ActivePoint</h1>
-          <p className="text-dark-700">Get started with appointments.</p>
+        <section className="mb-10 space-y-4">
+          <h1 className="header">Join ActivePoint Now</h1>
+          <p className="text-dark">Get started with appointments</p>
         </section>
 
+        {/* ini sudah di DEVINE tipenya di Custom Form Field shg bisa digunakan lagi template nya */}
         <CustomFormField
-          fieldType={FormFieldType.INPUT}
+          fieldType={FormFieldType.INPUT} // FormFieldType ini untuk menghindari TYPO dari INPUT 
           control={form.control}
           name="name"
-          label="Full Name"
-          placeholder="Your Name"
-          iconSrc="/assets/icons/user.svg"
+          label="Full Name" // label di atas input
+          placeholder="Your Name" // ini muncul di dalam box input
+          iconSrc="/assets/icons/user.svg" // ini icon yg muncul didlm input
           iconAlt="user"
         />
 
@@ -72,7 +76,7 @@ export const PatientForm = () => {
           control={form.control}
           name="email"
           label="Your Email"
-          placeholder="yourmail@mail.com"
+          placeholder="yourmail@email.com"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
         />
@@ -85,6 +89,7 @@ export const PatientForm = () => {
           placeholder="(62+) 123-4567-789"
         />
 
+        {/* INI JIKA SUDAH DIKLIK AKAN MENGARAHKAN KE PAGE YG LAIN */}
         <SubmitButton isLoading={isLoading}>Make Appointment</SubmitButton>
       </form>
     </Form>

@@ -24,18 +24,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Navbar />
+      
       <body
         className={cn(
-          "min-h-screen bg-dark-300 font-sans antialiased",
+          "min-h-screen bg-white font-sans antialiased", // GANTI BACKGROUND
           fontJakarta.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        {/* GANTI TEMA */}
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
-      <Footer />
+      
     </html>
   );
 }

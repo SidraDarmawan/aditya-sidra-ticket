@@ -104,7 +104,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header">Welcome 👋</h1>
+          <h1 className="header">Sign Up Here</h1>
           <p className="text-dark-700">Let us know more about yourself.</p>
         </section>
 
@@ -145,7 +145,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             />
           </div>
 
-          {/* BirthDate & Gender */}
+          {/* INI UNTUK TANGGAL LAHIRnya */}
           <div className="flex flex-col gap-6 xl:flex-row">
             <CustomFormField
               fieldType={FormFieldType.DATE_PICKER}
@@ -154,12 +154,13 @@ const RegisterForm = ({ user }: { user: User }) => {
               label="Date of birth"
             />
 
+            {/* INI UNTUK GENDER nya */}
             <CustomFormField
               fieldType={FormFieldType.SKELETON}
               control={form.control}
               name="gender"
               label="Gender"
-              renderSkeleton={(field) => (
+              renderSkeleton={(field) => ( // INI UNTUK MERENDER SEMUA FORM
                 <FormControl>
                   <RadioGroup
                     className="flex h-11 gap-6 xl:justify-between"

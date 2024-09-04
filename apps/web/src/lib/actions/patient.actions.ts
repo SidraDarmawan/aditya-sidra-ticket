@@ -14,9 +14,11 @@ import {
 } from "../appwrite.config";
 import { parseStringify } from "../utils";
 
-// CREATE APPWRITE USER
+// ini untuk membuat USER BARU DI DATABASE APPWRITE
 export const createUser = async (user: CreateUserParams) => {
   try {
+
+    // INI JIKA PERTAMA KALI DAFTAR
     // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
     const newuser = await users.create(
       ID.unique(),
@@ -27,7 +29,7 @@ export const createUser = async (user: CreateUserParams) => {
     );
 
     return parseStringify(newuser);
-  } catch (error: any) {
+  } catch (error: any) { // INI JIKA TERJADI ERROR
     // Check existing user
     if (error && error?.code === 409) {
       const existingUser = await users.list([
