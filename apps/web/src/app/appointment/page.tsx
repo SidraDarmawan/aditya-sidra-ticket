@@ -18,10 +18,10 @@ export default function Appointment({ searchParams }: SearchParamProps) {
           <PatientForm />
 
           <div className="text-14-regular mt-20 flex justify-between">
-            <p className="justify-items-end text-dark-600 xl:text-left">
+            <p className="justify-items-end text-dark-700 xl:text-left">
               © 2025 AditSidra Care
             </p>
-            <Link href="/AdminPage" className="text-green-500">
+            <Link href="/AdminPage" className="text-blue-500">
               Admin
             </Link>
           </div>
