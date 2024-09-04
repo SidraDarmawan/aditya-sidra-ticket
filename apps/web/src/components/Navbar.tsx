@@ -21,17 +21,17 @@ export const Navbar = () => {
     <>
       <nav className="fixed bg-[#ffffff40] top-0 right-0 w-full z-50 backdrop-blur-sm shadow-md">
         {/* TEXT PROMO PALING ATAS */}
-        <div className="bg-gradient-to-r from-primary to-secondary text-white ">
+        <div className="bg-gradient-to-r from-cyan-500 to-secondary text-black py-1">
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
-              <Marquee className='text-sm'>GET 20% OFF | You can book appointments from your comfort zone | Mobile no. +91 123456789</Marquee>
+              <Marquee className='text-sm'>BOOK NOW AND GET 20% OFF | You can book appointments from your comfort zone | Mobile no. +91 123456789</Marquee>
             </div>
           </div>
         </div>
 
-        <div className="flex px-[50px] items-center cursor-pointer py-5">
+        <div className="md:py-10 lg:py-5 flex px-[50px] items-center cursor-pointer py-5">
           <Link href={'/'}>
-            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="max-w-[30%] h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
+            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="max-w-[30%] h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70] md:hidden lg:flex" />
           </Link>
           <div className='absolute right-0 px-10'>
             <ul className='hidden items-center justify-self-auto md:flex gap-x-[100px] p-[10px]'>
@@ -54,18 +54,26 @@ export const Navbar = () => {
       {/* NAVBAR SCREEN KECIL */}
       
       <div className='fixed w-full z-50'>
-        <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-6 sm:p-10">
+
+        {/* INI ICON SHOW MENU nya */}
+        <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-8 sm:p-14">
           <GiHamburgerMenu size={25} className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]"/>               
         </div>
 
         <div className={
             menuOpen
-            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-r from-cyan-500 ease-in duration-500"
-            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-r from-cyan-500 ease-in duration-500" }>
-          <div className='flex w-full items-center justify-end p-[50px]'>
+            // INI JIKA MENU OPEN nya ngapain
+            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-br from-cyan-500 to-blue-500 ease-in duration-500"
+
+            // INI JIKA MENU CLOSE nya ngapain
+            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-br from-cyan-500 to-blue-500 ease-in duration-500" }>
+
+            {/* INI ICON X nya */}
+          <div className='flex w-full items-center justify-end p-[20px]'>
             <div onClick={handleNav} className='cursor-pointer hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
               <AiOutlineClose size={25} /></div></div>
           <div className='flex-col py-4 p-10'>
+  
             <ul>
               <Link href={'/'}>
                 <li onClick={() => setMenuOpen(false)}
@@ -85,16 +93,19 @@ export const Navbar = () => {
               </Link>
               <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
+                  className='pl-8 py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
                   <Button className='bg-blue-400'>Book Now</Button></li>
               </Link>
             </ul>            
           </div>
           <Link href={'/'} className="flex absolute bottom-0 down-[-100%] p-[50px] justify-center w-full hover:drop-shadow-[0_0_0.3rem_#ffffff70]">
             <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="h-10" />
-          </Link>
+          </Link>          
         </div>
       </div>
+
+      
+      
     </>
   )
 };
