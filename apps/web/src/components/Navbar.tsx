@@ -36,13 +36,13 @@ export const Navbar = () => {
           <div className='absolute right-0 px-10'>
             <ul className='hidden items-center justify-self-auto md:flex gap-x-[100px] p-[10px]'>
               <Link href={'/'}>
-                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
+                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
               <Link href={'/about-us'}>
-                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Details</li></Link>
+                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Details</li></Link>
               <Link href={'/service'}>
-                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Promo</li></Link>
+                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Promo</li></Link>
               <Link href={'/teams'}>
-                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Review</li></Link>
+                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Review</li></Link>
               <Link href={'/teams'}>
                 <Button className='bg-blue-400'>
                 <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Book Now</li></Button></Link>

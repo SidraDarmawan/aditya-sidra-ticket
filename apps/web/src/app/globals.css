@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 /* ========================================== TAILWIND STYLES */
+/* INI BUAT NAVBAR */
+@layer components {
+  .nav-link{
+    @apply md:block after:block after:h-[3px] after:bg-red-500 after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 hidden
+  }
+}
+
 @layer base {
   /* Remove scrollbar */
   .remove-scrollbar::-webkit-scrollbar {
