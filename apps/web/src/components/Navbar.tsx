@@ -19,7 +19,7 @@ export const Navbar = () => {
 
   return(
     <>
-      <nav className="fixed bg-[#ffffff40] top-0 right-0 w-full z-50 backdrop-blur-sm shadow-md">
+      <nav className="fixed bg-[#ffffff] top-0 right-0 w-full z-50 shadow-md">
         {/* TEXT PROMO PALING ATAS */}
         <div className="bg-gradient-to-r from-cyan-500 to-secondary text-black py-1">
           <div className="container py-[2px] sm:block hidden">
