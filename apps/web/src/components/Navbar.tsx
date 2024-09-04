@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from "next/image";
 import Link from 'next/link';
+import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -23,39 +24,40 @@ export const Navbar = () => {
         <div className="bg-gradient-to-r from-primary to-secondary text-white ">
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
-              <p className="text-sm">20% off on next booking</p>
-              <p>mobile no. +91 123456789</p>
+              <Marquee className='text-sm'>GET 20% OFF | You can book appointments from your comfort zone | Mobile no. +91 123456789</Marquee>
             </div>
           </div>
         </div>
 
-        <div className="flex px-[50px] items-center">
+        <div className="flex px-[50px] items-center cursor-pointer py-5">
           <Link href={'/'}>
-            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
+            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="max-w-[30%] h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70]" />
           </Link>
-          <div className=''>
-            <ul className='hidden justify-self-auto md:flex gap-x-[100px] p-[10px]'>
+          <div className='absolute right-0 px-10'>
+            <ul className='hidden items-center justify-self-auto md:flex gap-x-[100px] p-[10px]'>
               <Link href={'/'}>
-                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
+                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
               <Link href={'/about-us'}>
-                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">About Us</li></Link>
+                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Details</li></Link>
               <Link href={'/service'}>
-                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Service</li></Link>
+                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Promo</li></Link>
               <Link href={'/teams'}>
-                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Teams</li></Link>
+                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Review</li></Link>
               <Link href={'/teams'}>
-                <Button>
-                <li className="text-black hover:text-purple-600 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Book Now</li></Button></Link>
+                <Button className='bg-blue-400'>
+                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Book Now</li></Button></Link>
             </ul>            
           </div>                  
         </div>
       </nav>
 
       {/* NAVBAR SCREEN KECIL */}
-      <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-[50px] z-10">
+      
+      <div className='fixed w-full z-50'>
+        <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-6 sm:p-10">
           <GiHamburgerMenu size={25} className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]"/>               
-      </div>
-      <div className='fixed w-full z-10'>
+        </div>
+
         <div className={
             menuOpen
             ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-r from-cyan-500 ease-in duration-500"
@@ -67,23 +69,24 @@ export const Navbar = () => {
             <ul>
               <Link href={'/'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-purple-800 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Home</li>
+                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Home</li>
               </Link>
               <Link href={'/about-us'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-purple-800 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>About Us</li>
+                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Details</li>
               </Link>
               <Link href={'/service'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-purple-800 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Service</li>
+                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Promo</li>
               </Link>
               <Link href={'/teams'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-purple-800 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Teams</li>
+                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Review</li>
               </Link>
               <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-purple-800 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Book Now</li>
+                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
+                  <Button className='bg-blue-400'>Book Now</Button></li>
               </Link>
             </ul>            
           </div>
