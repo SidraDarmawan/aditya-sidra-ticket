@@ -63,10 +63,10 @@ export const Navbar = () => {
         <div className={
             menuOpen
             // INI JIKA MENU OPEN nya ngapain
-            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-br from-cyan-500 to-blue-500 ease-in duration-500"
+            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-br from-cyan-300 to-blue-300 ease-in duration-500"
 
             // INI JIKA MENU CLOSE nya ngapain
-            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-br from-cyan-500 to-blue-500 ease-in duration-500" }>
+            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-br from-cyan-300 to-blue-300 ease-in duration-500" }>
 
             {/* INI ICON X nya */}
           <div className='flex w-full items-center justify-end p-[20px]'>
