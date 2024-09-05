@@ -17,9 +17,13 @@ export default function Searchbar() {
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
         <h1 className='text-3xl pb-2 text-center'><b>View Doctor, Book an Appointment</b></h1>
         <p className="pb-8 text-center">Find the best doctors, clinics & hospitals in the city nearest to you.</p>
-            <div className="absolute right-[10%] min-w-[300px]">
+            <div className="min-w-[200px]">
                 <Search onSearch={handleSearch} />
-                <p className="text-[10px] p-1 pl-[30px]">Like: Diabetalogist</p>
+                <p className="text-[10px] p-1 pl-[30px]">Search Doctor, Clinics, Promo, etc ...</p>
+            </div>
+            <div className="min-w-[200px]">
+                <Search onSearch={handleSearch} />
+                <p className="text-[10px] p-1 pl-[30px]">Search Doctor, Clinics, Promo, etc ...</p>
             </div>
         <h2 className='text-2xl mt-20 mx-2'>Searched for:</h2>
         <p className=''> {searchValue}</p>
