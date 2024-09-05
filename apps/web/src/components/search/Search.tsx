@@ -28,7 +28,7 @@ const Search = (props: SearchProps) => {
                 type="search"
                 name="search"
                 placeholder={placeholderValue}
-                className="bg-white h-10 px-5 pr-10 w-full rounded-full text-sm focus:outline-none"
+                className="bg-white h-10 px-5 pr-10 w-full *:text-sm focus:outline-none"
                 onChange={searchHandler}
                 onKeyDown={handleKeyDown}
             />

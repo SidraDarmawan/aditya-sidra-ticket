@@ -19,7 +19,7 @@ export default function Searchbar() {
         <p className="pb-8 text-center">Find the best doctors, clinics & hospitals in the city nearest to you.</p>
             <div className="absolute right-[10%] min-w-[300px]">
                 <Search onSearch={handleSearch} />
-                <p className="text-[10px] p-1 pl-19">Like: Diabetalogist</p>
+                <p className="text-[10px] p-1 pl-[30px]">Like: Diabetalogist</p>
             </div>
         <h2 className='text-2xl mt-20 mx-2'>Searched for:</h2>
         <p className=''> {searchValue}</p>
