@@ -114,7 +114,7 @@ export default function Searchbar() {
           </Popover>
           </div>
         </div>
-        <h2 className='text-2xl mt-20 mx-2'>Searched for:</h2>
+        <h2 className='flex w-full justify-center space-x-10'>HASIL SEARCH nya:</h2>
         <p className=''> {searchValue}</p>
       </div>
     </main>
