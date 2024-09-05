@@ -1,42 +1,86 @@
-import { FaEnvelope } from "react-icons/fa";
+import { FOOTER_CONTACT_INFO, FOOTER_LINKS, SOCIALS } from '@/constants'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-
-export default function Footer() {
+const Footer = () => {
   return (
-  <>
-    <section className="bg-slate-900 md:bg-[#0C0C0C] w-full pt-32">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col mx-auto">
-          <h1 className="text-white text-center font-serif text-3xl md:text-4xl">Come Talk With Us</h1>
-          <div className="text-gray-300 text-center text-[10px] font-serif pt-14 md:flex md:justify-between md:px-20 md:text-sm">
-            <div className="flex flex-col items-center pb-16">
-              <p className="pb-3">STAY UP TO DATE <span className="block">WITH OUR NEW SLETTER</span></p>
-              <div className="flex justify-center items-center rounded-full border w-10 h-10 ">
-                <FaEnvelope />
-              </div>
+    <footer className="flexCenter mx-[200px] my-[50px] mt-[500px]">
+      <div className="padding-container max-container flex w-full flex-col gap-5">
+        <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
+          <Link href="/" className="mb-10">
+            <Image
+            src="/assets/icons/logo-full_1.svg"
+            alt="Gradient"
+            width={1000}
+            height={1000}
+            className="h-[100px] w-full object-cover"></Image>
+          </Link>
+
+          <div className='flex flex-wrap gap-10 sm:justify-between md:flex-1'>
+            {FOOTER_LINKS.map((columns) => (
+              <FooterColumn title={columns.title}>
+                <ul className="regular-14 flex flex-col gap-4 text-gray-30">
+                  {columns.links.map((link) => (
+                    <Link href="/" key={link}>
+                      {link}
+                    </Link>
+                  ))}
+                </ul>
+              </FooterColumn>
+            ))}
+
+            <div className="flex flex-col gap-5">
+              <FooterColumn title={FOOTER_CONTACT_INFO.title}>
+                {FOOTER_CONTACT_INFO.links.map((link) => (
+                  <Link
+                    href="/"
+                    key={link.label}
+                    className="flex gap-4 md:flex-col lg:flex-row"
+                  >
+                    <p className="whitespace-nowrap">
+                      {link.label}:
+                    </p>
+                    <p className="medium-14 whitespace-nowrap text-blue-70">
+                      {link.value}
+                    </p>
+                  </Link>
+                ))}
+              </FooterColumn>
             </div>
-            <div className="flex flex-col items-center pb-16">
-              <p className="pb-3">CONTACT OUR GENERAL MANAGER</p>
-              <button className="border px-3 py-2 rounded-sm">VALERIE VAN DELFT</button></div>
-                <div className="flex flex-col items-center  pb-16">
-                  <p className="pb-3">AGENCY PRESENTATION</p>
-                  <div className="flex justify-center items-center rounded-full border w-10 h-10 ">
-                  </div>
-                </div>
+
+            <div className="flex flex-col gap-5">
+              <FooterColumn title={SOCIALS.title}>
+                <ul className="regular-14 flex gap-4 text-gray-30">
+                  {SOCIALS.links.map((link) => (
+                    <Link href="/" key={link}>
+                      <Image src={link} alt="logo" width={24} height={24} />
+                    </Link>
+                  ))}
+                </ul>
+              </FooterColumn>
+            </div>
           </div>
         </div>
+        <div className="border bg-gray-20" />
+        <p className="regular-14 w-full text-center text-gray-30">2024 Active Point | Adit Sidra Care</p>
       </div>
-      <div className="w-full  bg-gray-800  py-5 md:bg-[#131313]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-around md:gap-5 md:px-10 items-center text-gray-300 text-sm font-semibold">
-          <p className="hidden md:flex">CONTACT US</p>
-          <p className="">NEWSLETTER</p>
-          <p className="hidden md:flex">PODCAST</p>
-          <p className="hidden md:flex">1 SITE PAR JOUR</p>
-          <p className="hidden md:flex">AGENCY PRESENTATION</p>
-          <p className="md:hidden">AGENCY PRES.</p>
-        </div>
-      </div>
-    </section>
-  </>
-);
+    </footer>
+  )
 }
+
+type FooterColumnProps = {
+  title: string;
+  children: React.ReactNode;
+}
+
+const FooterColumn = ({ title, children }: FooterColumnProps) => {
+  return (
+    <div className="flex flex-col gap-5">
+      <h4 className="bold-18 whitespace-nowrap">{title}</h4>
+      {children}
+    </div>
+  )
+}
+
+export default Footer

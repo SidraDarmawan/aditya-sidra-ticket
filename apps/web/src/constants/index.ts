@@ -84,3 +84,43 @@ export const StatusIcon = {
   pending: "/assets/icons/pending.svg",
   cancelled: "/assets/icons/cancelled.svg",
 };
+
+export const FOOTER_CONTACT_INFO = {
+  title: 'Contact Us',
+  links: [
+    { label: 'Admin Officer', value: '+91 943 520 0024' },
+    { label: 'Email Officer', value: 'support@activepoint.com' },
+  ],
+};
+
+export const FOOTER_LINKS = [
+  {
+    title: 'Learn More',
+    links: [
+      'About Active Point',
+      'Details',
+      'Promo',
+      'Review',
+      'Contact Us',
+    ],
+  },
+  {
+    title: 'Our Community',
+    links: [
+      'Ikatan Dokter Indonesia',
+      'Konsil Kedokteran Indonesia',
+      'PDKMI'
+    ],
+  },
+];
+
+export const SOCIALS = {
+  title: 'Social',
+  links: [
+    '/facebook.svg',
+    '/instagram.svg',
+    '/twitter.svg',
+    '/youtube.svg',
+    '/wordpress.svg',
+  ],
+};
