@@ -59,13 +59,13 @@ export default function Searchbar() {
     <>
     <main className=" flex w-full min-h-screen flex-col items-center justify-between">
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
-        <h1 className='text-5xl pb-5 text-center'><b>View Doctor and Book Appointment</b></h1>
-        <p className="pb-10 text-center">Find the best doctors, clinics & hospitals in the city nearest to you.</p>
+        <h1 className='text-white text-5xl pb-1 text-center'><b>Spirit of Java Festival</b></h1>
+        <p className="text-white text-3xl pb-10 text-center">Thank you and See you at</p>
         <div className="flex w-full justify-center space-x-10">
 
           <div className="lg:inline-block min-w-[500px]">
               <Search onSearch={handleSearch} />
-              <p className="text-[10px] p-1 pl-[20px]">Search Doctor, Clinics, Promo, etc ...</p>
+              <p className="text-white text-[10px] p-1 pl-[20px]">Search for Event, Promo, Review, Details etc ...</p>
           </div>
 
           <div className="lg:inline-block min-w-[200px]">
@@ -79,7 +79,7 @@ export default function Searchbar() {
               >
                 {value
                   ? combobox.find((framework) => framework.value === value)?.label
-                  : "Select your city..."}
+                  : "Select the location..."}
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
@@ -114,7 +114,7 @@ export default function Searchbar() {
           </Popover>
           </div>
         </div>
-        <h2 className='flex w-full justify-center space-x-10'>HASIL SEARCH nya:</h2>
+        <h2 className='text-white text-xs flex w-full justify-center pt-[70px]'>This is what you are looking for:</h2>
         <p className=''> {searchValue}</p>
       </div>
     </main>

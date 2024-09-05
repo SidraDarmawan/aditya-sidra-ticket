@@ -97,19 +97,18 @@ export const FOOTER_LINKS = [
   {
     title: 'Learn More',
     links: [
-      'About Active Point',
+      'About Us',
       'Details',
       'Promo',
-      'Review',
-      'Contact Us',
+      'Review'
     ],
   },
   {
     title: 'Our Community',
     links: [
-      'Ikatan Dokter Indonesia',
-      'Konsil Kedokteran Indonesia',
-      'PDKMI'
+      'Together Bersama',
+      'Synchronize Fest',
+      'Guinness Brighter'
     ],
   },
 ];
@@ -120,7 +119,6 @@ export const SOCIALS = {
     '/facebook.svg',
     '/instagram.svg',
     '/twitter.svg',
-    '/youtube.svg',
-    '/wordpress.svg',
+    '/youtube.svg'
   ],
 };

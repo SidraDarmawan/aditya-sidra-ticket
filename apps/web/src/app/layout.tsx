@@ -27,12 +27,12 @@ export default function RootLayout({
       
       <body
         className={cn(
-          "min-h-screen bg-white font-sans antialiased", // GANTI BACKGROUND
+          "min-h-screen bg-[#292929] font-fontJakarta antialiased", // GANTI BACKGROUND
           fontJakarta.variable
         )}
       >
         {/* GANTI TEMA */}
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="black">
           <Navbar />
           {children}
           <Footer />

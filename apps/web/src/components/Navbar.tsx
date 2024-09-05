@@ -19,33 +19,33 @@ export const Navbar = () => {
 
   return(
     <>
-      <nav className="fixed bg-[#ffffff] top-0 right-0 w-full z-50 shadow-md">
+      <nav className="fixed bg-[#292929] top-0 right-0 w-full z-50 shadow-md">
         {/* TEXT PROMO PALING ATAS */}
-        <div className="bg-gradient-to-r from-cyan-500 to-secondary text-black py-1">
+        <div className="bg-gradient-to-r from-[#291261] to-[#57005a] text-[#ffffff] py-1">
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
-              <Marquee className='text-sm'>BOOK NOW AND GET 20% OFF | You can book appointments from your comfort zone | Mobile no. +91 123456789</Marquee>
+              <Marquee className='text-sm'>BOOK NOW AND GET 20% OFF | You can book the ticket in your comfort zone | Mobile no. +91 123456789</Marquee>
             </div>
           </div>
         </div>
 
         <div className="md:py-10 lg:py-5 flex px-[50px] items-center cursor-pointer py-5">
           <Link href={'/'}>
-            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="max-w-[30%] h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70] md:hidden lg:flex" />
+            <Image src="/assets/icons/logo-full_1.svg" alt="Logo" height={1000} width={1000} className="max-w-[30%] h-10 hover:drop-shadow-[0_0_0.3rem_#ffffff70] md:hidden lg:flex" />
           </Link>
           <div className='absolute right-0 px-10'>
             <ul className='hidden items-center justify-self-auto md:flex gap-x-[100px] p-[10px]'>
               <Link href={'/'}>
-                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Home</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] font-extrabold size-fit cursor-pointer">Home</li></Link>
               <Link href={'/about-us'}>
-                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Details</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Details</li></Link>
               <Link href={'/service'}>
-                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Promo</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Promo</li></Link>
               <Link href={'/teams'}>
-                <li className="nav-link text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Review</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Review</li></Link>
               <Link href={'/teams'}>
-                <Button className='bg-blue-400'>
-                <li className="text-black hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70] font-extrabold size-fit cursor-pointer">Book Now</li></Button></Link>
+                <Button className='bg-[#ff2ba0]'>
+                <li className="hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Create Event</li></Button></Link>
             </ul>            
           </div>                  
         </div>
@@ -94,12 +94,12 @@ export const Navbar = () => {
               <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='pl-8 py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
-                  <Button className='bg-blue-400'>Book Now</Button></li>
+                  <Button className='bg-blue-400'>Create Event</Button></li>
               </Link>
             </ul>            
           </div>
           <Link href={'/'} className="flex absolute bottom-0 down-[-100%] p-[50px] justify-center w-full hover:drop-shadow-[0_0_0.3rem_#ffffff70]">
-            <Image src="/assets/icons/logo-full_2.svg" alt="Logo" height={1000} width={1000} className="h-10" />
+            <Image src="/assets/icons/logo-full_1.svg" alt="Logo" height={1000} width={1000} className="h-10" />
           </Link>          
         </div>
       </div>
