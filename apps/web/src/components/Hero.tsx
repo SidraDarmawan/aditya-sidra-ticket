@@ -11,9 +11,9 @@ export default function Hero() {
           alt="Gradient"
           width={1000}
           height={1000}
-          className="min-h-[320px] w-full object-cover lg:h-auto"
+          className="h-[550px] w-full object-cover"
         />
-        <div className="pt-[95px] absolute center flex w-full flex-col items-center ">
+        <div className="pt-[130px] absolute center flex w-full flex-col items-center ">
           <div className="flex w-full lg:container lg:flex-row lg:justify-between lg:px-20">            
             <Searchbar />
           </div>

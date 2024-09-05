@@ -59,15 +59,16 @@ export default function Searchbar() {
     <>
     <main className=" flex w-full min-h-screen flex-col items-center justify-between">
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
-        <h1 className='text-3xl pb-2 text-center'><b>View Doctor, Book an Appointment</b></h1>
-        <p className="pb-8 text-center">Find the best doctors, clinics & hospitals in the city nearest to you.</p>
+        <h1 className='text-5xl pb-5 text-center'><b>View Doctor and Book Appointment</b></h1>
+        <p className="pb-10 text-center">Find the best doctors, clinics & hospitals in the city nearest to you.</p>
         <div className="flex w-full justify-center space-x-10">
-          <div className="inline-block min-w-[200px]">
+
+          <div className="lg:inline-block min-w-[500px]">
               <Search onSearch={handleSearch} />
-              <p className="text-[10px] p-1 pl-[30px]">Search Doctor, Clinics, Promo, etc ...</p>
+              <p className="text-[10px] p-1 pl-[20px]">Search Doctor, Clinics, Promo, etc ...</p>
           </div>
 
-          <div className="inline-block min-w-[200px]">
+          <div className="lg:inline-block min-w-[200px]">
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <Button
