@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineClose } from 'react-icons/ai';
+import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 
 
@@ -71,7 +71,7 @@ export const Navbar = () => {
             {/* INI ICON X nya */}
           <div className='flex w-full items-center justify-end p-[20px]'>
             <div onClick={handleNav} className='cursor-pointer hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
-              <AiOutlineClose size={25} fill='white' /></div></div>
+              <IoClose size={25} fill='white' /></div></div>
           <div className='flex-col py-4 p-10'>
   
             <ul>
