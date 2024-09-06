@@ -3,7 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+type Link = {
+  id: number;
+  title: string;
+  image: string;
+};
+
 const Footer = () => {
+
   return (
     <div className="text-white w-full items-center justify-between flex max-w-[80%] mt-[50px] mb-[20px] mx-[150px]">
       <div className="flex w-full flex-col gap-5">
