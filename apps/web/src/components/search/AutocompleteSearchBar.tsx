@@ -20,6 +20,8 @@ const AutocompleteSearchBar = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
+
+      //! DATA PRODUCT yang didapat dari website itu
       const { data } = await axios.get("https://fakestoreapi.com/products");
       setProducts(data);
     };
