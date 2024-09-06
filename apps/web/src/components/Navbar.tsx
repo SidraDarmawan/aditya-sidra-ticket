@@ -71,7 +71,7 @@ export const Navbar = () => {
             {/* INI ICON X nya */}
           <div className='flex w-full items-center justify-end p-[20px]'>
             <div onClick={handleNav} className='cursor-pointer hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
-              <AiOutlineClose size={25} /></div></div>
+              <AiOutlineClose size={25} fill='white' /></div></div>
           <div className='flex-col py-4 p-10'>
   
             <ul>
