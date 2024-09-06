@@ -57,16 +57,16 @@ export const Navbar = () => {
 
         {/* INI ICON SHOW MENU nya */}
         <div onClick={handleNav} className="fixed items-center md:hidden right-[10%] cursor-pointer p-8 sm:p-14">
-          <GiHamburgerMenu size={25} className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]"/>               
+          <GiHamburgerMenu size={25} fill='white' className="hover:drop-shadow-[0_0_0.3rem_#ffffff70]"/>               
         </div>
 
         <div className={
             menuOpen
             // INI JIKA MENU OPEN nya ngapain
-            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-br from-cyan-300 to-blue-300 ease-in duration-500"
+            ? "fixed left-0 top-0 w-[40%] backdrop-blur-md md:hidden h-screen bg-gradient-to-br from-[#272727] to-[#111111] ease-in duration-500"
 
             // INI JIKA MENU CLOSE nya ngapain
-            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-br from-cyan-300 to-blue-300 ease-in duration-500" }>
+            : "fixed left-[-100%] w-[40%] backdrop-blur-md h-screen bg-gradient-to-br from-[#272727] to-[#111111] ease-in duration-500" }>
 
             {/* INI ICON X nya */}
           <div className='flex w-full items-center justify-end p-[20px]'>
@@ -77,24 +77,24 @@ export const Navbar = () => {
             <ul>
               <Link href={'/'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Home</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Home</li>
               </Link>
               <Link href={'/about-us'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Details</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Details</li>
               </Link>
               <Link href={'/service'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Promo</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Promo</li>
               </Link>
               <Link href={'/teams'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>Review</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Review</li>
               </Link>
               <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='pl-8 py-4 font-extrabold size-fit cursor-pointer hover:text-blue-400 hover:drop-shadow-[0_0_0.3rem_#ffffff70]'>
-                  <Button className='bg-blue-400'>Create Event</Button></li>
+                  className='text-[#f04aff] pl-8 py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>
+                  <Button className='bg-[#f04aff] text-[#111111] hover:text-[#f04aff] hover:bg-[#111111]'>Create Event</Button></li>
               </Link>
             </ul>            
           </div>
