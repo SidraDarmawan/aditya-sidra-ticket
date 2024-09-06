@@ -1,7 +1,7 @@
 'use client';
 import * as React from "react"
-import {useState} from "react";
-import Search from "@/components/search";
+
+import AutocompleteSearchBar from "./search/AutocompleteSearchBar";
 
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
@@ -19,6 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+
 
 const combobox = [
   {
@@ -44,14 +45,7 @@ const combobox = [
 ]
 
 export default function Searchbar() {
-    const [searchValue, setSearchValue] = useState('');
-
-    const handleSearch = (value: string) => {
-        // Here, you can access the search value when Enter is pressed
-        console.log(value);
-        setSearchValue(value);
-    };
-
+    
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
 
@@ -61,61 +55,59 @@ export default function Searchbar() {
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
         <h1 className='text-white text-5xl pb-1 text-center'><b>Spirit of Java Festival</b></h1>
         <p className="text-white text-3xl pb-10 text-center">Thank you and See you at</p>
-        <div className="flex w-full justify-center space-x-10">
+        <div className="flex w-full justify-center space-x-5">
 
-          <div className="lg:inline-block min-w-[500px]">
-              <Search onSearch={handleSearch} />
-              <p className="text-white text-[10px] p-1 pl-[20px]">Search for Event, Promo, Review, Details etc ...</p>
+          <div className="flex lg:inline-block">
+              <AutocompleteSearchBar />
           </div>
 
-          <div className="lg:inline-block min-w-[200px]">
-          <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                role="combobox"
-                aria-expanded={open}
-                className="w-[200px] justify-between"
-              >
-                {value
-                  ? combobox.find((framework) => framework.value === value)?.label
-                  : "Select the location..."}
-                <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
-              <Command>
-                <CommandInput placeholder="Search Location..." className="h-9" />
-                <CommandList>
-                  <CommandEmpty>No Location Exist</CommandEmpty>
-                  <CommandGroup>
-                    {combobox.map((framework) => (
-                      <CommandItem
-                        key={framework.value}
-                        value={framework.value}
-                        onSelect={(currentValue) => {
-                          setValue(currentValue === value ? "" : currentValue)
-                          setOpen(false)
-                        }}
-                      >
-                        {framework.label}
-                        <CheckIcon
-                          className={cn(
-                            "ml-auto h-4 w-4",
-                            value === framework.value ? "opacity-100" : "opacity-0"
-                          )}
-                        />
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
-          </div>
+          <div className="flex lg:inline-block min-w-[200px]">
+            <Popover open={open} onOpenChange={setOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={open}
+                  className="text-[#0000006c] w-[200px] justify-between"
+                >
+                  {value
+                    ? combobox.find((framework) => framework.value === value)?.label
+                    : "Search Location"}
+                  <CaretSortIcon className="ml-2 h-4 w-4 shrink-0" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[200px] p-0">
+                <Command>
+                  <CommandInput placeholder="Type here" className="" />
+                  <CommandList>
+                    <CommandEmpty>No Location Exist</CommandEmpty>
+                    <CommandGroup>
+                      {combobox.map((framework) => (
+                        <CommandItem
+                          key={framework.value}
+                          value={framework.value}
+                          onSelect={(currentValue) => {
+                            setValue(currentValue === value ? "" : currentValue)
+                            setOpen(false)
+                          }}
+                        >
+                          {framework.label}
+                          <CheckIcon
+                            className={cn(
+                              "ml-auto h-4 w-4",
+                              value === framework.value ? "opacity-100" : "opacity-0"
+                            )}
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+          </div>          
         </div>
-        <h2 className='text-white text-xs flex w-full justify-center pt-[70px]'>This is what you are looking for:</h2>
-        <p className=''> {searchValue}</p>
+        
       </div>
     </main>
     </>
