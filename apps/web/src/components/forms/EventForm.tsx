@@ -101,7 +101,7 @@ const EventForm = ({ user }: { user: User }) => {
         <Form {...form}>
             <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex-1 space-y-12">
+            className="space-y-12 flex-1">
 
             <section className="space-y-6 text-white">
                 <div className="mb-9 space-y-1">

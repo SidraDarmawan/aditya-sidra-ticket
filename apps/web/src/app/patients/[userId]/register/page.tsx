@@ -12,9 +12,9 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
   if (patient) redirect(`/patients/${userId}/new-appointment`);
 
   return (
-    <div className="flex h-screen max-h-screen pt-[112px]">
+    <div className="flex pt-[112px]">
       <section className="remove-scrollbar container">
-        <div className="sub-container flex-1 flex-col">
+        <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
           
 
           <RegisterForm user={user} />
@@ -29,7 +29,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
         height={1000}
         width={1000}
         alt="patient"
-        className="side-img max-w-[50%] max-h-[750px]"
+        className="side-img max-w-[50%] min-h-[600px]"
       />
     </div>
   );
