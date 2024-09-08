@@ -21,7 +21,7 @@ export class AuthController {
         return res.status(400).send({ message: 'Email already registered' });
       }
 
-      const hashedPassword = await bcrypt.hash(password, 10); // Pastikan bcrypt digunakan di sini
+      const hashedPassword = await bcrypt.hash(password, 10); 
 
       const userReferralCode = Math.random().toString(36).substr(2, 8).toUpperCase();
 
