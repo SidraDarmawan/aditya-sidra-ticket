@@ -6,7 +6,6 @@ import { deleteUserService } from '@/services/user/delete-user.service';
 import { verifyRole } from '@/middlewares/verifyRole';
 
 export class UserController {
-  // Metode untuk mendapatkan daftar pengguna
   async getUsers(req: Request, res: Response, next: NextFunction) {
     try {
       const query = {
@@ -33,12 +32,11 @@ export class UserController {
   
       return res.status(200).send(result);
     } catch (error) {
-      // Casting error ke tipe Error
+      
       return res.status(400).send({ message: (error as Error).message });
     }
   }
 
-  // Metode untuk menghapus pengguna
   async deleteUser(req: Request, res: Response, next: NextFunction) {
     try {
       verifyRole(['admin'])(req, res, next);
@@ -51,7 +49,6 @@ export class UserController {
     }
   }
 
-  // Metode untuk membuat referral baru
   async createReferral(req: Request, res: Response, next: NextFunction) {
     try {
       const referralData = req.body;
@@ -62,7 +59,6 @@ export class UserController {
     }
   }
 
-  // Metode untuk mendapatkan referral berdasarkan kode
   async getReferralByCode(req: Request, res: Response, next: NextFunction) {
     try {
       const { code } = req.params;
@@ -76,7 +72,6 @@ export class UserController {
     }
   }
 
-  // Metode untuk memperbarui poin referral
   async updateReferralPoints(req: Request, res: Response, next: NextFunction) {
     try {
       const { code } = req.params;
