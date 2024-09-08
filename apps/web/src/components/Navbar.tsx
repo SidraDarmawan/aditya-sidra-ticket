@@ -43,7 +43,7 @@ export const Navbar = () => {
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Pricing</li></Link>
               <Link href={'/teams'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Review</li></Link>
-              <Link href={'/teams'}>
+              <Link href={'/login'}>
                 <Button className='bg-[#ff2ba0]'>
                 <li className="hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Login</li></Button></Link>
             </ul>            

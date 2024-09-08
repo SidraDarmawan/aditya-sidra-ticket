@@ -1,5 +1,7 @@
 "use client";
 
+import Link from 'next/link';
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -16,7 +18,7 @@ import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 
-export const PatientForm = () => {
+export const LoginForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -54,10 +56,10 @@ export const PatientForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="text-white flex-1 space-y-6">
         <section className="mb-10 space-y-4">
-          <h1 className="header">Join ActivePoint Now</h1>
-          <p className="text-dark">Get started with appointments</p>
+          <h1 className="header">Sign in to Account</h1>
+          <p className="">Get started here</p>
         </section>
 
         {/* ini sudah di DEVINE tipenya di Custom Form Field shg bisa digunakan lagi template nya */}
@@ -90,7 +92,7 @@ export const PatientForm = () => {
         />
 
         {/* INI JIKA SUDAH DIKLIK AKAN MENGARAHKAN KE PAGE YG LAIN */}
-        <SubmitButton isLoading={isLoading}>Make Appointment</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Sign Up</SubmitButton>
       </form>
     </Form>
   );
