@@ -71,3 +71,4 @@ model Coupon {
   updatedAt         DateTime @updatedAt
   expiresAt         DateTime?
 }
+

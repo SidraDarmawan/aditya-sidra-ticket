@@ -1,3 +1,5 @@
+import { prisma } from '@/config/prismaClient';
+import bcrypt from 'bcrypt'; // Pastikan bcrypt diimpor
 import { changePasswordService } from '@/services/auth/change-password.service';
 import { forgotPasswordService } from '@/services/auth/forgot-password.service';
 import { getUserService } from '@/services/auth/get-user.service';
@@ -10,45 +12,50 @@ import { verifyService } from '@/services/auth/verify.service';
 import { NextFunction, Request, Response } from 'express';
 
 export class AuthController {
-  async registerController(req: Request, res: Response, next: NextFunction) {
+  static async register(req: Request, res: Response, next: NextFunction) {
+    const { email, password, name, role, referralCode } = req.body;
+
     try {
-      const { referralNumber, ...userData } = req.body; 
-      const result = await registerService({ ...userData, referralCode: referralNumber });
+      const existingUser = await prisma.user.findUnique({ where: { email } });
+      if (existingUser) {
+        return res.status(400).send({ message: 'Email already registered' });
+      }
 
-      res.status(200).send(result);
-    } catch (error) {
-      next(error);
-    }
-  }
+      const hashedPassword = await bcrypt.hash(password, 10); // Pastikan bcrypt digunakan di sini
 
-  async loginController(req: Request, res: Response, next: NextFunction) {
-    try {
-      const result = await loginService(req.body);
+      const userReferralCode = Math.random().toString(36).substr(2, 8).toUpperCase();
 
-      res.status(200).send(result);
-    } catch (error) {
-      next(error);
-    }
-  }
+      const newUser = await prisma.user.create({
+        data: {
+          name,
+          email,
+          password: hashedPassword,
+          role,
+          referralCode: userReferralCode,
+          points: referralCode ? 10000 : 0, 
+        },
+      });
 
-  async verifyController(req: Request, res: Response, next: NextFunction) {
-    try {
-      const userId = Number(res.locals.user.id);
-      const password = req.body.password;
-      const result = await verifyService(userId, password);
+      if (referralCode) {
+        const referrer = await prisma.user.findUnique({ where: { referralCode } });
 
-      return res.status(200).send(result);
-    } catch (error) {
-      next(error);
-    }
-  }
+        if (referrer) {
+          await prisma.referral.create({
+            data: {
+              code: referralCode,
+              userId: referrer.id,
+              points: 10000,
+            },
+          });
 
-  async getUserController(req: Request, res: Response, next: NextFunction) {
-    try {
-      const id = req.params.id;
-      const result = await getUserService(Number(id));
+          await prisma.user.update({
+            where: { id: referrer.id },
+            data: { points: { increment: 10000 } },
+          });
+        }
+      }
 
-      return res.status(200).send(result);
+      res.status(200).send({ message: 'User registered successfully', user: newUser });
     } catch (error) {
       next(error);
     }
