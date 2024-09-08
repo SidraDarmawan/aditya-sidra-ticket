@@ -24,7 +24,7 @@ export default function Login({ searchParams }: SearchParamProps) {
               © 2025 AditSidra Fest
             </p>
             <Link href="/create" className="text-red-500">
-              Create Event Here
+              CREATE EVENT
             </Link>
           </div>
         </div>
