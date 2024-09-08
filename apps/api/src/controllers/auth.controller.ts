@@ -1,5 +1,5 @@
 import { prisma } from '@/config/prismaClient';
-import bcrypt from 'bcrypt'; // Pastikan bcrypt diimpor
+import bcrypt from 'bcrypt'; 
 import { changePasswordService } from '@/services/auth/change-password.service';
 import { forgotPasswordService } from '@/services/auth/forgot-password.service';
 import { getUserService } from '@/services/auth/get-user.service';
