@@ -6,7 +6,7 @@ import { columns } from "@/components/table/columns";
 import { DataTable } from "@/components/table/DataTable";
 import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 
-const AdminPage = async () => {
+const Create = async () => {
   const appointments = await getRecentAppointmentList();
 
   return (
@@ -60,4 +60,4 @@ const AdminPage = async () => {
   );
 };
 
-export default AdminPage;
+export default Create;

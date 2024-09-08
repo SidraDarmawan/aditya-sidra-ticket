@@ -38,14 +38,14 @@ export const Navbar = () => {
               <Link href={'/'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] font-extrabold size-fit cursor-pointer">Home</li></Link>
               <Link href={'/about-us'}>
-                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Details</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Services</li></Link>
               <Link href={'/service'}>
-                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Promo</li></Link>
+                <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Pricing</li></Link>
               <Link href={'/teams'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Review</li></Link>
-              <Link href={'/teams'}>
+              <Link href={'/login'}>
                 <Button className='bg-[#ff2ba0]'>
-                <li className="hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Create Event</li></Button></Link>
+                <li className="hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Login</li></Button></Link>
             </ul>            
           </div>                  
         </div>
@@ -81,11 +81,11 @@ export const Navbar = () => {
               </Link>
               <Link href={'/about-us'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Details</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Services</li>
               </Link>
               <Link href={'/service'}>
                 <li onClick={() => setMenuOpen(false)}
-                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Promo</li>
+                  className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Pricing</li>
               </Link>
               <Link href={'/teams'}>
                 <li onClick={() => setMenuOpen(false)}
@@ -94,7 +94,7 @@ export const Navbar = () => {
               <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='text-[#f04aff] pl-8 py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>
-                  <Button className='bg-[#f04aff] text-[#111111] hover:text-[#f04aff] hover:bg-[#111111]'>Create Event</Button></li>
+                  <Button className='bg-[#f04aff] text-[#111111] hover:text-[#f04aff] hover:bg-[#111111]'>Login</Button></li>
               </Link>
             </ul>            
           </div>
@@ -102,10 +102,7 @@ export const Navbar = () => {
             <Image src="/assets/icons/logo-full_1.svg" alt="Logo" height={1000} width={1000} className="h-10" />
           </Link>          
         </div>
-      </div>
-
-      
-      
+      </div>      
     </>
   )
 };

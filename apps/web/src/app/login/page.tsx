@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from "next/link";
 import { PasskeyModal } from "@/components/PasskeyModal";
-import { PatientForm } from '@/components/forms/PatientForm';
+import { LoginForm } from '@/components/forms/LoginForm';
 
-export default function Order({ searchParams }: SearchParamProps) {
+export default function Login({ searchParams }: SearchParamProps) {
 
   const isAdmin = searchParams?.admin === "true";
   return (
@@ -17,20 +17,14 @@ export default function Order({ searchParams }: SearchParamProps) {
         <div className="sub-container max-w-[496px]">
           
 
-          <PatientForm />
+          <LoginForm />
 
           <div className="text-14-regular mt-20 flex justify-between">
-            <p className="justify-items-end text-dark-700 xl:text-left">
-              © 2025 AditSidra Care
+            <p className="justify-items-end text-white xl:text-left">
+              © 2025 AditSidra Fest
             </p>
-<<<<<<< HEAD
-            <Link href="/AdminPage" className="text-blue-500">
-=======
-
-            {/* INI UNTUK MENUJU HALAMAN ADMIN BERIKUTNYA  */}
-            <Link href="/?admin=true" className="text-green-500">
->>>>>>> caeb316f5659c81550d87fa8fd03f8da37f245df
-              Admin
+            <Link href="/create" className="text-red-500">
+              Create Event Here
             </Link>
           </div>
         </div>
@@ -40,7 +34,7 @@ export default function Order({ searchParams }: SearchParamProps) {
         src="/assets/images/onboarding-img.png"
         height={1000}
         width={1000}
-        alt="patient"
+        alt="Concert"
         className="side-img max-w-[50%]"
       />
     </div>
