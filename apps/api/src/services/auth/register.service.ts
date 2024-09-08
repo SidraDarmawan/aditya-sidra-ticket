@@ -1,4 +1,4 @@
-import { NEXT_BASE_URL, SECRET_KEY } from '@/config'; // Pastikan SECRET_KEY diimpor dengan benar
+import { NEXT_BASE_URL, SECRET_KEY } from '@/config'; 
 import { transporter } from '@/libs/nodemailer';
 import prisma from '@/prisma';
 import { User } from '@prisma/client';
@@ -9,7 +9,6 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
   try {
     const { email, referralCode, role, ...userData } = body;
 
-    // Periksa apakah email sudah ada
     const existingUser = await prisma.user.findFirst({
       where: { email },
     });
@@ -24,10 +23,8 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
 
     let newUser;
 
-    // Generate kode referral unik
     const generatedReferralCode = uuidv4();
 
-    // Buat atau update pengguna
     if (!existingUser) {
       newUser = await prisma.user.create({
         data: {
@@ -50,18 +47,16 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
       });
     }
 
-    // Tangani poin dan diskon referral
+
     if (referralCode) {
       const referral = await prisma.referral.findUnique({
         where: { code: referralCode },
       });
 
       if (referral) {
-        // Hitung tanggal kedaluwarsa (3 bulan dari sekarang)
         const now = new Date();
         const expiryDate = new Date(now.setMonth(now.getMonth() + 3));
-
-        // Update poin referral dan masa berlaku
+        
         await prisma.referral.update({
           where: { code: referralCode },
           data: {
@@ -70,7 +65,6 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
           },
         });
 
-        // Update poin pengguna dan buat kupon diskon
         if (newUser) {
           await prisma.user.update({
             where: { id: referral.userId },
@@ -85,15 +79,14 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
             data: {
               userId: newUser.id,
               discountPercentage: 10,
-              code: uuidv4(), // Gunakan uuidv4 untuk generate kode kupon
-              expiresAt: expiryDate, // Kupon kedaluwarsa 3 bulan dari sekarang
+              code: uuidv4(), 
+              expiresAt: expiryDate,
             },
           });
         }
       }
     }
 
-    // Generate token JWT
     const token = sign(
       { id: Number(newUser?.id) || existingUser?.id },
       SECRET_KEY,
@@ -102,10 +95,8 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
       }
     );
 
-    // Buat link verifikasi
     const link = `${NEXT_BASE_URL}/verification?token=${token}`;
 
-    // Kirim email verifikasi dengan HTML sederhana
     await transporter.sendMail({
       from: 'Admin <admin@example.com>',
       to: email,
