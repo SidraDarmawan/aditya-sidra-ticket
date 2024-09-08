@@ -1,29 +1,44 @@
-import express from 'express';
+import express, {
+  json,
+  urlencoded,
+  Express,
+  Request,
+  Response,
+  NextFunction,
+} from 'express';
+import cors from 'cors';
 import { PORT } from './config';
-import { SampleRouter } from './routers/sample.router';
+import { AuthRouter } from './routers/auth.router';
 
-class App {
-  private app: express.Application;
+export default class App {
+  private app: Express;
 
   constructor() {
     this.app = express();
-    this.initializeMiddlewares();
-    this.initializeRoutes();
+    this.configure();
+    this.routes();
   }
 
-  private initializeMiddlewares(): void {
-    this.app.use(express.json());
+  private configure(): void {
+    this.app.use(cors());
+    this.app.use(json());
+    this.app.use(urlencoded({ extended: true }));
   }
 
-  private initializeRoutes(): void {
-    this.app.use('/auth', SampleRouter);
+
+  private routes(): void {
+    const authRouter = new AuthRouter();
+
+    this.app.get('/api', (req: Request, res: Response) => {
+      res.send('Hello, Purwadhika Student API!');
+    });
+
+    this.app.use('/api/auth', authRouter.getRouter());
   }
 
   public start(): void {
     this.app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`  ➜  [API] Local: http://localhost:${PORT}/api`);
     });
   }
 }
-
-export default App;
