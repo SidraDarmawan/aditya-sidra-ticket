@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border bg-gray-20" />
-        <p className="regular-14 w-full text-center text-white">2024 Spirit of Java Festival | Adit Sidra</p>
+        <p className="regular-14 w-full text-center text-white">2024 Spirit of Java Festival | Adit Sidra Fest</p>
       </div>
     </div>
   )
