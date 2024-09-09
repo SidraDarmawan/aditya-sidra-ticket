@@ -14,7 +14,7 @@ export default function Login({ searchParams }: SearchParamProps) {
       {isAdmin && <PasskeyModal />}
 
       <section className="remove-scrollbar container">
-        <div className="max-w-[496px] pt-[30px]">
+        <div className="pt-[30px] items-center justify-center">
           
 
           <LoginForm />
