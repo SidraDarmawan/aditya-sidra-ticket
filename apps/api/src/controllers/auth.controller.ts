@@ -12,11 +12,8 @@ import { NextFunction, Request, Response } from 'express';
 export class AuthController {
   async registerController(req: Request, res: Response, next: NextFunction) {
     try {
-      const { referralNumber, ...userData } = req.body;
-      const result = await registerService({
-        ...userData,
-        referralCode: referralNumber,
-      });
+      const { referralNumber, ...userData } = req.body; 
+      const result = await registerService({ ...userData, referralCode: referralNumber });
 
       res.status(200).send(result);
     } catch (error) {

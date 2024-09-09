@@ -6,7 +6,6 @@ import { deleteUserService } from '@/services/user/delete-user.service';
 import { verifyRole } from '@/middlewares/verifyRole';
 
 export class UserController {
-  
   async getUsers(req: Request, res: Response, next: NextFunction) {
     try {
       const query = {
@@ -33,7 +32,7 @@ export class UserController {
   
       return res.status(200).send(result);
     } catch (error) {
-     
+      
       return res.status(400).send({ message: (error as Error).message });
     }
   }

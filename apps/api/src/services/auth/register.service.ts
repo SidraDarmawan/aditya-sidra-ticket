@@ -53,9 +53,9 @@ export const registerService = async (body: { referralCode?: string } & Omit<Use
       });
 
       if (referral) {
-   
         const now = new Date();
         const expiryDate = new Date(now.setMonth(now.getMonth() + 3));
+
         await prisma.referral.update({
           where: { code: referralCode },
           data: {
