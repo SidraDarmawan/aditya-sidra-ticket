@@ -45,7 +45,7 @@ export const RegForm = () => {
       const newUser = await createUser(user);
 
       if (newUser) {
-        router.push(`/register/${newUser.$id}/registered`); // INI URL nya DYNAMIC sesuai ID nya
+        router.push(`/register/user/${newUser.$id}/registered`); // INI URL nya DYNAMIC sesuai ID nya
       }
     } catch (error) {
       console.log(error);
