@@ -37,13 +37,13 @@ export const Navbar = () => {
             <ul className='hidden items-center justify-self-auto md:flex gap-x-[50px] p-[10px]'>
               <Link href={'/'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] font-extrabold size-fit cursor-pointer">Home</li></Link>
-              <Link href={'/about-us'}>
+              <Link href={'/pricing'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Pricing</li></Link>
-              <Link href={'/service'}>
+              <Link href={'/review'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Review</li></Link>
 
               <Button className='bg-[#ff2ba0] space-x-[10px] min-w-[50px]'>
-                <Link href={'/login'}>                  
+                <Link href={'/register'}>                  
                   <li className=" hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70]  cursor-pointer">Register</li></Link>
                 <Link href={'/login'}>                  
                   <li className=" hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70]  cursor-pointer">Login</li></Link>
@@ -83,26 +83,26 @@ export const Navbar = () => {
                 <li onClick={() => setMenuOpen(false)}
                   className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Home</li>
               </Link>
-              <Link href={'/about-us'}>
+              <Link href={'/pricing'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Pricing</li>
               </Link>
-              <Link href={'/service'}>
+              <Link href={'/review'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Review</li>
               </Link>
 
-              <Link href={'/service'}>
+              <Link href={'/register'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='sm:hidden flex text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Register</li>
               </Link>
-              <Link href={'/service'}>
+              <Link href={'/login'}>
                 <li onClick={() => setMenuOpen(false)}
                   className='sm:hidden flex text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Login</li>
               </Link>
               
               <Button className='hidden sm:flex mt-[16px] bg-[#ff2ba0] hover:bg-[#181818] space-x-3 w-full justify-center'>
-                <Link href={'/login'}>
+                <Link href={'/register'}>
                   <li onClick={() => setMenuOpen(false)}
                     className='hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#ff445d70] cursor-pointer'>
                     Register</li>
