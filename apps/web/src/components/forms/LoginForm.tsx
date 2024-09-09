@@ -58,7 +58,7 @@ export const LoginForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="text-white flex-1 space-y-6">
         <section className="mb-10 space-y-4">
-          <h1 className="header">Sign in to Account</h1>
+          <h1 className="header">Sign In to Account</h1>
           <p className="">Get started here</p>
         </section>
 
@@ -92,7 +92,7 @@ export const LoginForm = () => {
         />
 
         {/* INI JIKA SUDAH DIKLIK AKAN MENGARAHKAN KE PAGE YG LAIN */}
-        <SubmitButton isLoading={isLoading}>Sign Up</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Sign In</SubmitButton>
       </form>
     </Form>
   );
