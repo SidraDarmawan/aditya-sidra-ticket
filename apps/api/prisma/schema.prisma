@@ -8,17 +8,23 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
-  name         String
-  email        String    @unique
-  password     String
-  role         String
-  referralCode String    @unique
-  points       Int       @default(0)
-  events       Event[]
-  referrals    Referral[]  @relation("UserReferrals")
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  id            Int         @id @default(autoincrement())
+  name          String
+  email         String      @unique
+  password      String
+  isVerified    Boolean?
+  isDelete      Boolean?    @default(false)
+  role          String
+  referralCode  String      @unique
+  points        Int         @default(0)
+  events        Event[]
+  referrals     Referral[]  @relation("UserReferrals")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  birthDate     DateTime?
+  gender        String?
+  avatarUrl     String?
+  coupon        Coupon[]    @relation("UserCoupons")
 }
 
 model Event {
@@ -27,11 +33,12 @@ model Event {
   description String
   date        DateTime
   organizer   User      @relation(fields: [organizerId], references: [id])
+  location    String
   organizerId Int
   tickets     Ticket[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-}
+} 
 
 model Ticket {
   id        Int     @id @default(autoincrement())
@@ -51,4 +58,17 @@ model Referral {
   userId    Int
   points    Int      @default(0)
   createdAt DateTime @default(now())
+  expiresAt DateTime?
+} 
+
+model Coupon {
+  id                Int      @id @default(autoincrement())
+  userId            Int
+  discountPercentage Int
+  code              String   @unique
+  user              User     @relation("UserCoupons", fields: [userId], references: [id])
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  expiresAt         DateTime?
 }
+
