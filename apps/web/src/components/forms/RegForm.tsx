@@ -18,7 +18,7 @@ import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 
-export const LoginForm = () => {
+export const RegForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,8 +58,8 @@ export const LoginForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="text-white flex-1 space-y-6">
         <section className="mb-10 space-y-4">
-          <h1 className="header">Sign In to Account</h1>
-          <p className="">Get started here</p>
+          <h1 className="header">Create a Fest Account</h1>
+          <p className="">Enter your personal information</p>
         </section>
 
         {/* ini sudah di DEVINE tipenya di Custom Form Field shg bisa digunakan lagi template nya */}
@@ -92,7 +92,7 @@ export const LoginForm = () => {
         />
 
         {/* INI JIKA SUDAH DIKLIK AKAN MENGARAHKAN KE PAGE YG LAIN */}
-        <SubmitButton isLoading={isLoading}>Sign In</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Next Page</SubmitButton>
       </form>
     </Form>
   );

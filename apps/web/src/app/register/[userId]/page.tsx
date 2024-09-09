@@ -5,11 +5,11 @@ import RegisterForm from "@/components/forms/RegisterForm";
 import { getPatient, getUser } from "@/lib/actions/patient.actions";
 
 // INI DYNAMIC SESUAI DENGAN PERUBAHAN ID USER
-const Register = async ({ params: { userId } }: SearchParamProps) => {
+const Registered = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
-  const patient = await getPatient(userId);
+  const userA = await getPatient(userId);
 
-  if (patient) redirect(`/patients/${userId}/new-appointment`);
+  if (userA) redirect(`/register/${userId}/new-user`);
 
   return (
     <div className="flex pt-[112px]">
@@ -28,11 +28,11 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
         src="/assets/images/register-img.png"
         height={1000}
         width={1000}
-        alt="patient"
+        alt="USER"
         className="side-img max-w-[50%] min-h-[600px]"
       />
     </div>
   );
 };
 
-export default Register;
+export default Registered;
