@@ -55,13 +55,13 @@ export default function Searchbar() {
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
         <h1 className='text-white text-5xl pb-1 text-center'><b>Spirit of Java Festival</b></h1>
         <p className="text-white text-3xl pb-10 text-center">Thank you and See you at</p>
-        <div className="flex w-full justify-center space-x-5">
+        <div className="sm:flex flex-row w-full justify-center space-x-5">
 
-          <div className="flex lg:inline-block">
+          <div className="flex justify-center">
               <AutocompleteSearchBar />
           </div>
 
-          <div className="flex lg:inline-block min-w-[200px]">
+          <div className="hidden sm:flex lg:inline-block min-w-[200px]">
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
                 <Button

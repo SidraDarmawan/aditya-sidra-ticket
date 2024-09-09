@@ -8,23 +8,23 @@ export default function Login({ searchParams }: SearchParamProps) {
   const isAdmin = searchParams?.admin === "true";
   return (
     <>
-    <div className="flex h-screen max-h-screen">
+    <div className="flex pt-[112px]">
 
       {/* //! OTP VERIFICATION PASSKEY MODEL */}
       {isAdmin && <PasskeyModal />}
 
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px]">
+      <section className="remove-scrollbar container">
+        <div className="pt-[30px] items-center justify-center">
           
 
           <LoginForm />
 
-          <div className="text-14-regular mt-20 flex justify-between">
+          <div className="text-14-regular mt-[25px] flex justify-between">
             <p className="justify-items-end text-white xl:text-left">
               © 2025 AditSidra Fest
             </p>
             <Link href="/create" className="text-red-500">
-              Create Event Here
+              CREATE EVENT
             </Link>
           </div>
         </div>
