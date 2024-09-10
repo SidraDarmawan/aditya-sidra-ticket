@@ -45,7 +45,7 @@ export const RegForm = () => {
       const newUser = await createUser(user);
 
       if (newUser) {
-        router.push(`/register/user/${newUser.$id}/registered`); // INI URL nya DYNAMIC sesuai ID nya
+        router.push(`/register/${newUser.$id}`); // INI URL nya DYNAMIC sesuai ID nya
       }
     } catch (error) {
       console.log(error);
@@ -58,8 +58,8 @@ export const RegForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="text-white flex-1 space-y-6">
         <section className="mb-10 space-y-4">
-          <h1 className="header">Create a Fest Account</h1>
-          <p className="">Enter your personal information</p>
+          <h1 className="header">Create an Account</h1>
+          <p className="">Register here</p>
         </section>
 
         {/* ini sudah di DEVINE tipenya di Custom Form Field shg bisa digunakan lagi template nya */}

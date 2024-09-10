@@ -8,7 +8,7 @@ export default function Register ({ searchParams }: SearchParamProps) {
     
   return (
     <>
-    <div className="flex pt-[112px]">
+    <div className="flex pt-[112px] h-[650px]">
 
       {/* //! OTP VERIFICATION PASSKEY MODEL */}
       {isAdmin && <PasskeyModal />}
@@ -23,7 +23,7 @@ export default function Register ({ searchParams }: SearchParamProps) {
             <p className="justify-items-end text-white xl:text-left">
               © 2025 AditSidra Fest
             </p>
-            <Link href="/login" className="text-red-500">
+            <Link href="/login" className="text-[#ff4693]">
               Already have an Account?
             </Link>
           </div>
