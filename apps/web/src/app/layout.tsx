@@ -13,8 +13,8 @@ const fontJakarta = Plus_Jakarta_Sans({ // font yg dipakai
 });
 
 export const metadata: Metadata = {
-  title: 'aditya-sidra',
-  description: 'aditya-sidra-ticketing',
+  title: 'adit-sidra fest',
+  description: 'JUDUL TABS',
 };
 
 export default function RootLayout({
