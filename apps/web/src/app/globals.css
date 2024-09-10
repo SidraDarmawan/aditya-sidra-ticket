@@ -18,6 +18,13 @@
     border-radius: 0px;
   }
 
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
   .remove-scrollbar::-webkit-scrollbar-track {
     background: transparent;
   }
