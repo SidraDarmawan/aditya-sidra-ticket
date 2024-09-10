@@ -106,6 +106,7 @@ export const Navbar = () => {
                   className='sm:hidden flex text-white py-4 font-extrabold size-fit cursor-pointer hover:text-[#f04aff] hover:drop-shadow-[0_0_0.3rem_#c2384f70]'>Login</li>
               </Link>
               
+              
               <Button className='hidden sm:flex mt-[16px] bg-[#ff2ba0] hover:bg-[#181818] space-x-3 w-full justify-center'>
                 <Link href={'/register'}>
                   <li onClick={() => setMenuOpen(false)}
