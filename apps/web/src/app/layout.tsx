@@ -27,7 +27,7 @@ export default function RootLayout({
       
       <body
         className={cn(
-          "min-h-screen bg-[#292929] font-fontJakarta antialiased", // GANTI BACKGROUND
+          "bg-[#292929] font-fontJakarta", // GANTI BACKGROUND
           fontJakarta.variable
         )}
       >

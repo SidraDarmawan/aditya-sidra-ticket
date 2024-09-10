@@ -51,7 +51,7 @@ export default function Searchbar() {
 
   return (
     <>
-    <main className=" flex w-full min-h-screen flex-col items-center justify-between">
+    <main className=" flex w-full flex-col items-center justify-between">
       <div className="w-full max-w-[60%] items-center justify-between lg:flex-inline">
         <h1 className='text-white text-5xl pb-1 text-center'><b>Spirit of Java Festival</b></h1>
         <p className="text-white text-3xl pb-10 text-center">Thank you and See you at</p>
