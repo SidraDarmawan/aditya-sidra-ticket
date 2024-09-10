@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import AutocompleteSearchBar from './search/AutocompleteSearchBar';
 
 
 export const Navbar = () => {
@@ -41,6 +42,10 @@ export const Navbar = () => {
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Pricing</li></Link>
               <Link href={'/review'}>
                 <li className="nav-link text-white hover:text-[#ff4693] hover:drop-shadow-[0_0_0.3rem_#ff445d70] size-fit cursor-pointer">Review</li></Link>
+
+              <div className="px-[] justify-center items-center">
+                <AutocompleteSearchBar />
+              </div>
 
               <Button className='bg-[#ff2ba0] space-x-[10px] min-w-[50px]'>
                 <Link href={'/register'}>                  

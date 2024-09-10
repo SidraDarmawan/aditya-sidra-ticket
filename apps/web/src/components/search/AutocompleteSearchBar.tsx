@@ -93,11 +93,13 @@ const AutocompleteSearchBar = () => {
       />
 
       {query !== "" && searchResults.length > 0 && (
-        <ProductList
-          products={searchResults}
-          selectedProductIndex={selectedProductIndex}
-          handleProductClick={handleProductClick}
-        />
+        <div className="absolute right-[220px]">
+          <ProductList
+            products={searchResults}
+            selectedProductIndex={selectedProductIndex}
+            handleProductClick={handleProductClick}            
+          />
+        </div>
       )}
     </div>
   );

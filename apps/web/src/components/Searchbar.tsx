@@ -57,10 +57,6 @@ export default function Searchbar() {
         <p className="text-white text-3xl pb-10 text-center">Thank you and See you at</p>
         <div className="sm:flex flex-row w-full justify-center space-x-5">
 
-          <div className="flex justify-center">
-              <AutocompleteSearchBar />
-          </div>
-
           <div className="hidden sm:flex lg:inline-block min-w-[200px]">
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
