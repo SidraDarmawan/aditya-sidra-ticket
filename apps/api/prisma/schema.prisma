@@ -7,39 +7,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
 model User {
-  id           Int       @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   name         String
-  email        String    @unique
+  email        String     @unique
   password     String
   role         String
-  referralCode String    @unique
-  points       Int       @default(0)
+  referralCode String     @unique
+  points       Int        @default(0)
   events       Event[]
-  referrals    Referral[]  @relation("UserReferrals")
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  referrals    Referral[] @relation("UserReferrals")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 }
 
 model Event {
-  id          Int       @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   description String
   date        DateTime
-  organizer   User      @relation(fields: [organizerId], references: [id])
+  organizer   User     @relation(fields: [organizerId], references: [id])
   organizerId Int
   tickets     Ticket[]
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Ticket {
-  id        Int     @id @default(autoincrement())
-  event     Event   @relation(fields: [eventId], references: [id])
+  id        Int      @id @default(autoincrement())
+  event     Event    @relation(fields: [eventId], references: [id])
   eventId   Int
   price     Float
   quantity  Int
-  sold      Int     @default(0)
+  sold      Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

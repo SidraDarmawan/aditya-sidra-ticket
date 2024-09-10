@@ -1,29 +1,34 @@
-import express from 'express';
-import { PORT } from './config';
-import { SampleRouter } from './routers/sample.router';
+import express, { Express, Request, Response } from 'express'
+import { AuthorRouter } from './routers/author.router';
 
-class App {
-  private app: express.Application;
+const PORT: number = 8000
 
-  constructor() {
-    this.app = express();
-    this.initializeMiddlewares();
-    this.initializeRoutes();
-  }
+export default class App {
+    private app: Express;
 
-  private initializeMiddlewares(): void {
-    this.app.use(express.json());
-  }
+    constructor() {
+        this.app = express()
+        this.configure()
+        this.routes()
+    }
 
-  private initializeRoutes(): void {
-    this.app.use('/auth', SampleRouter);
-  }
+    private configure(): void {
+        this.app.use(express.json())
+    }
 
-  public start(): void {
-    this.app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  }
+    private routes(): void {
+        const authorRouter = new AuthorRouter()
+
+        this.app.get('/api', (req: Request, res: Response) => {
+            res.send(`Hello, This is my API`)
+        })
+
+        this.app.use('/api/authors', authorRouter.getRouter())
+    }
+
+    public start(): void {
+        this.app.listen(PORT, () => {
+            console.log(`[API] local:   http://localhost:${PORT}/api`)
+        })
+    }
 }
-
-export default App;
