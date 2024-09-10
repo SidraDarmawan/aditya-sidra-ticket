@@ -1,3 +1,9 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -15,51 +21,4 @@ model Author {
   avatar    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-
-model User {
-  id           Int        @id @default(autoincrement())
-  name         String
-  email        String     @unique
-  password     String
-  role         String
-  referralCode String     @unique
-  points       Int        @default(0)
-  events       Event[]
-  referrals    Referral[] @relation("UserReferrals")
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-}
-
-model Event {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  date        DateTime
-  organizer   User     @relation(fields: [organizerId], references: [id])
-  organizerId Int
-  tickets     Ticket[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model Ticket {
-  id        Int      @id @default(autoincrement())
-  event     Event    @relation(fields: [eventId], references: [id])
-  eventId   Int
-  price     Float
-  quantity  Int
-  sold      Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Referral {
-  id        Int      @id @default(autoincrement())
-  code      String   @unique
-  user      User     @relation("UserReferrals", fields: [userId], references: [id])
-  userId    Int
-  points    Int      @default(0)
-  createdAt DateTime @default(now())
 }
