@@ -1,15 +1,15 @@
-import LoginForm from "@/components/auth/login-form";
-
+import LoginForm from "@/components/loginForm";
+import Wrapper from "@/components/wrapper";
+import { Suspense } from "react";
 
 export default function Login () {
-  
-  return (
-    <>
-    <section className="w-full pt-[112px] my-[50px]">
-      <div className=" flex items-center justify-center">
-        <LoginForm />
-      </div>
-    </section>
-    </>
-  );
-};
+    return (
+        <Wrapper>
+            <div className="flex justify-center w-full ">
+                <Suspense>
+                    <LoginForm />
+                </Suspense>
+            </div>
+        </Wrapper>
+    )
+}
