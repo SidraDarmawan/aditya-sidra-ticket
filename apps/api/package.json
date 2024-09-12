@@ -4,10 +4,13 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts",
-    "build": "tsc && tsc-alias",
+    "start": "next start",
+    "postinstall": "npx prisma generate",
+    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register src/index.ts next dev",
+    "build": "tsc && tsc-alias prisma generate && next build",
     "serve": "cross-env NODE_ENV=production node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "next lint",
     "prisma": "npx prisma"
   },
   "author": "",
@@ -38,7 +41,7 @@
     "@types/multer": "^1.4.12",
     "@types/nodemailer": "^6.4.15",
     "@types/uuid": "^10.0.0",
-    "prisma": "^5.19.0",
+    "prisma": "^5.19.1",
     "tsc-alias": "^1.8.10",
     "tsconfig-paths": "^4.2.0"
   }
