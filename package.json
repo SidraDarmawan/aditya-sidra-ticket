@@ -1,14 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "turbo run build prisma generate && next build",
+    "dev": "turbo run dev next dev",
+    "lint": "turbo run lint next lint",
     "test": "turbo run test",
     "serve": "turbo run serve",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "postprepare": "bash -c 'chmod ug+x .husky/*'"
+    "postprepare": "bash -c 'chmod ug+x .husky/*'",
+    "start": "next start"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
