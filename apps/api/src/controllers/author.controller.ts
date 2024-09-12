@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
 import { compare, genSalt, hash } from "bcrypt";
+import { sign } from 'jsonwebtoken'
 
 export class AuthorController {
     async createAuthor(req: Request, res: Response) {
@@ -55,9 +56,13 @@ export class AuthorController {
 
             if(!isValidPassword) throw "incorrect password!"
 
+            const payload = { id: existingAuthor.id, role: existingAuthor.role }
+            const token = sign(payload, process.env.SECRET_JWT!, { expiresIn: '10m' }) // tanda ! untuk memberi tau ini pasti ada, 10m jika sudah 10 menit token tidak dpt dipakai lagi
+
             res.status(200).send({
                 status: 'ok',
                 msg: "login success!",
+                token, // ini akan ngirim token nya
                 author: existingAuthor // ini ngirim res sebagai existingAuthor
             })
 
