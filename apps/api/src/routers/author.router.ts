@@ -13,7 +13,9 @@ export class AuthorRouter {
     }
 
     private initializeRoutes(): void {
+        // verifyToken ini dari middlewares JWT
         this.router.get('/', verifyToken, this.authorController.getAuthor)
+        
         this.router.get('/:id', this.authorController.getAuthorId)
         this.router.post('/', this.authorController.createAuthor)
         this.router.post('/login', this.authorController.loginAuthor)
