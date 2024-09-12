@@ -57,7 +57,7 @@ export class AuthorController {
             if(!isValidPassword) throw "incorrect password!"
 
             const payload = { id: existingAuthor.id, role: existingAuthor.role }
-            const token = sign(payload, process.env.SECRET_JWT!, { expiresIn: '10m' }) // tanda ! untuk memberi tau ini pasti ada, 10m jika sudah 10 menit token tidak dpt dipakai lagi
+            const token = sign(payload, process.env.SECRET_JWT!, { expiresIn: '1d' }) // tanda ! untuk memberi tau ini pasti ada, m = menit jika sudah 10 menit token tidak dpt dipakai lagi
 
             res.status(200).send({
                 status: 'ok',
@@ -77,6 +77,9 @@ export class AuthorController {
 
     async getAuthor(req: Request, res: Response) {
         try {
+            console.log(req.author)
+
+            // ini untuk mendapat data author semua
             const authors = await prisma.author.findMany()
             res.status(200).send({
                 status: 'ok',
@@ -92,14 +95,22 @@ export class AuthorController {
 
     async getAuthorId(req: Request, res: Response) {
         try {
+
+            // ini untuk dapat author tertentu
             const author = await prisma.author.findUnique({ 
+
+                // ini akan membut oto id dgn sistem incremen params
                 where: { id: +req.params.id } 
             })
+
+            // ini jika tidak ada author
             if (!author) throw 'author not found!'
             res.status(200).send({
                 status: 'ok',
                 author
             })
+        
+        //ini jika error
         } catch (err) {
             res.status(400).send({
                 status: 'error',
