@@ -1,15 +1,12 @@
-import RegisterForm from "@/components/auth/register-form";
-
-
-export default function Register () {
+import RegisterForm from "@/components/registerForm";
+import Wrapper from "@/components/wrapper";
   
-  return (
-    <>
-    <section className="w-full pt-[112px] my-[50px]">
-      <div className=" flex items-center justify-center">
-        <RegisterForm />
-      </div>
-    </section>
-    </>
-  );
-};
+export default function Register() {
+    return (
+        <Wrapper>
+            <div className="pt-[112px] flex justify-center w-full ">
+                <RegisterForm />
+            </div>
+        </Wrapper>
+    )
+}
