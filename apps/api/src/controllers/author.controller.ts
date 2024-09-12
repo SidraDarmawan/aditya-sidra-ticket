@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../prisma";
-import { genSalt, hash } from "bcrypt";
+import { compare, genSalt, hash } from "bcrypt";
 
 export class AuthorController {
     async createAuthor(req: Request, res: Response) {
@@ -15,7 +15,7 @@ export class AuthorController {
             // ini untuk validasi, jika sudah ada Author nya (existingAuthor), throw ini akan ditangkap oleh catch err
             if(existingAuthor) throw "email has been used"
 
-            // ini jika tidak, maka menjalankan ENSCRYPT dari password
+            //! ini jika tidak, maka menjalankan ENSCRYPT dari password
             const salt = await genSalt(10);
             const hashPassword = await hash(password, salt); // password yg sudah ditangkap di hash dulu
             
@@ -36,6 +36,39 @@ export class AuthorController {
             })
         }
     }
+
+    async loginAuthor(req: Request, res: Response) {
+        try {
+            // ini ngirim dari req.body (email, dan password) ke server
+            const { email, password } = req.body
+
+            // ini nyari author yg unique, dimana email nya itu sama
+            const existingAuthor = await prisma.author.findUnique({
+                where: { email: email } // email = email
+            })
+
+            // ini mengecek jika Author yg sudah ada tidak dpt, maka res nya author not found
+            if (!existingAuthor) throw "author not found!"
+
+            // ini jika dapat author yg dimaksud, maka akan compare(bcrypt) password nya itu dengan password dari author yg lain (password yg sudah di ENCRYPTED)
+            const isValidPassword = await compare(password, existingAuthor.password)
+
+            if(!isValidPassword) throw "incorrect password!"
+
+            res.status(200).send({
+                status: 'ok',
+                msg: "login success!",
+                author: existingAuthor // ini ngirim res sebagai existingAuthor
+            })
+
+    }   catch (err) {
+        res.status(400).send({ // akan ditanggkap ini jika err
+            status: 'error',
+            msg: err
+        })
+    }
+}
+
 
     async getAuthor(req: Request, res: Response) {
         try {
